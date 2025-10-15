@@ -1,5 +1,7 @@
 package com.example.listycity;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -32,7 +34,33 @@ public class CityList {
         return list;
     }
 
+    /**
+     * Checks if the city is in the list
+     * @param city
+     * @return
+     * Returns a boolean
+     */
     public boolean hasCity(City city) {
         return this.cities.contains(city);
+    }
+
+    /**
+     * Deletes a city from the list. If not in the list, throws an exception.
+     * @param city
+     */
+    public void delete(City city) {
+        if (this.hasCity(city)) {
+            this.cities.remove(city);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * Returns the total number of cities.
+     * @return
+     */
+    public int countCities() {
+        return this.cities.size();
     }
 }
